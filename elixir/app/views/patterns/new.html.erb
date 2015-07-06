@@ -1,5 +1,13 @@
 <h1>create a pattern</h1>
 
+<% if @pattern.errors.any? %>
+    <ul>
+      <% @pattern.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+<% end %>
+
 <%= form_for :pattern, url: patterns_path do |f| %>
   <p>
     <%= f.text_field :name %>
