@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Pattern, type: :model do
 
-  let(:pattern) { build(name: "colors", first: "#457a1d", second: "#8d20af", third: "#f15a00") }
+  let(:pattern) { Pattern.create(name: "colors", first: "#457a1d", second: "#8d20af", third: "#f15a00") }
 
   describe "fields" do
     it { should have_db_column(:name).of_type(:string) }
