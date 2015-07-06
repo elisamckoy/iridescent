@@ -26,4 +26,12 @@ RSpec.describe PatternsController, type: :controller do
       expect(assigns(:pattern)).to eq(@pattern)
     end
   end
+
+  describe "#new" do
+    before do
+      get :new
+    end
+    it { should respond_with(200) }
+    it { should render_template(:new) }
+  end
 end

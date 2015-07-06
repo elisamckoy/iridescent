@@ -4,6 +4,7 @@
   <% @patterns.each do |pattern| %>
     <li>
       <%= link_to('pattern.name', root_path) %>
+      <%= link_to('show this pattern', pattern_path(pattern)) %>
     </li>
   <% end %>
 </ul>

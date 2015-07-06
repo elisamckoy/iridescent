@@ -1,0 +1,18 @@
+<h1>create a pattern</h1>
+
+<%= form_for :pattern, url: patterns_path do |f| %>
+  <p>
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.text_field :first %>
+  </p>
+  <p>
+    <%= f.text_field :second %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+
+<%= link_to('back', patterns_path) %>

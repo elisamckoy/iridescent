@@ -7,4 +7,7 @@ class PatternsController < ApplicationController
 	def show
   	@pattern = Pattern.find(params[:id])
 	end
+
+	def new
+	end
 end
