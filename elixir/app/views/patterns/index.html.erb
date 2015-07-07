@@ -1,11 +1,11 @@
 <h1>Elixir</h1>
-<%= link_to('make a new pattern', new_pattern_path) %>
+<%= link_to('Create a New Pattern', new_pattern_path) %>
 
 <ul>
   <% @patterns.each do |pattern| %>
     <li>
       <%= link_to("#{ pattern.name }" , root_path) %>
-      <%= link_to('show this pattern', pattern_path(pattern)) %>
+      <%= link_to('Show Pattern', pattern_path(pattern)) %>
     </li>
   <% end %>
 </ul>
