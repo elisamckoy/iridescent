@@ -14,3 +14,21 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+$(document).ready(function(){
+  function colorGradient(){
+    colorString = "";
+    for (var i = 0; i < 500; ++i){
+      r = Math.sin(.3 * i + 0) * (50) + 200;
+      g = Math.sin(.4 * i + 2) * (50) + 200;
+      b = Math.sin(.3 * i + 4) * (50) + 200;
+      div ='<div class="color" style="background-color:rgb({r},{g},{b});"></div>';
+      div = div.replace("{r}",Math.floor(r));
+      div = div.replace("{g}",Math.floor(g));
+      div = div.replace("{b}",Math.floor(b));
+      colorString += div;
+    }
+    return colorString ;
+  }
+  $('#rainbowish').html(colorGradient());
+});
