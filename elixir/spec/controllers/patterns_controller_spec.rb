@@ -73,4 +73,47 @@ RSpec.describe PatternsController, type: :controller do
       end
     end
   end
+
+  describe "#edit" do
+    before do
+      @pattern = Pattern.create(name: "colors", first: "#457a1d", second: "#8d20af", third: "#f15a00")
+      get :edit, id: @pattern.id
+    end
+
+    it { should respond_with(200) }
+    it { should render_template(:edit) }
+    it "should assign pattern with specified id to @pattern" do
+      expect(assigns(:pattern)).to eq(@pattern)
+    end
+  end
+
+  describe "#update" do
+    context "with valid params" do
+      before do
+        @pattern = Pattern.create(name: "colors", first: "#457a1d", second: "#8d20af", third: "#f15a00")
+        @pattern_params = {name: "colors", first: "#457a1d", second: "#8d20af", third: "#f15a00"}
+        patch :update, { id: @pattern.id, pattern: @pattern_params }
+      end
+
+      it { should respond_with(302) }
+      it { should redirect_to("/patterns/#{@pattern.id}")}
+      it "should update the attributes for pattern" do
+        expect(Pattern.find_by(@pattern_params)).to be_truthy
+      end
+    end
+
+    context "with invalid params" do
+      before do
+        @pattern = Pattern.create(name: "colors", first: "#457a1d", second: "#8d20af", third: "#f15a00")
+        @invalid_pattern_params = { name: "", first: "", second: "", third: ""}
+        patch :update, { id: @pattern.id, pattern: @invalid_pattern_params }
+      end
+
+      it { should respond_with(400) }
+      it { should render_template(:edit) }
+      it "should not update the attributes for pattern" do
+        expect(Pattern.find_by(@invalid_pattern_params)).to be_nil
+      end
+    end
+  end
 end
