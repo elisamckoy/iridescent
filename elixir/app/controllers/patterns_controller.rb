@@ -21,6 +21,19 @@ class PatternsController < ApplicationController
 	  end
 	end
 
+	def edit
+  	@pattern = Pattern.find(params[:id])
+	end
+
+	def update
+	  @pattern = Pattern.find(params[:id])
+	  if @pattern.update(pattern_params)
+	    redirect_to @pattern
+	  else
+	    render 'edit', status: 400
+	  end
+	end
+
 	private
 
   def pattern_params

@@ -6,4 +6,5 @@
 <p><%= @pattern.second %></p>
 <p><%= @pattern.third %></p>
 
-<%= link_to('back', cats_path) %>
+<%= link_to('edit this pattern', edit_pattern_path(@pattern)) %>
+<%= link_to('back', patterns_path) %>
