@@ -1,3 +1,41 @@
 // Place all the styles related to the patterns controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+/*------------------------ GENERAL ------------------------*/
+
+* {
+	font-family: 'Hind', sans-serif;
+	letter-spacing: 2px;
+	list-style-type: none;
+	text-decoration: none;
+	text-align: center;
+}
+
+h1 {
+	font-family: 'Raleway', sans-serif;
+	color: #9757a6;
+}
+
+/*------------------------ LINKS ------------------------*/
+
+a {
+	padding: 0px 3px;
+	border: 2px solid;
+}
+
+/* unvisited link + visited link */
+a:link,
+a:visited {
+    color: #5d58a7;
+}
+
+/* mouse over link */
+a:hover {
+    color: #a7587a;
+}
+
+/* selected link */
+a:active {
+    color: #66a758;
+}
