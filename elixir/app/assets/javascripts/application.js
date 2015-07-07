@@ -31,4 +31,24 @@ $(document).ready(function(){
     return colorString ;
   }
   $('#rainbowish').html(colorGradient());
+  
+  setInterval(function () {
+    rotateDivsBack();
+    // rotateDivsForward();
+  }, 50 );
+
+  var rotateDivsBack = function() {
+    var $removedDiv = $('#rainbowish').children().first().remove();
+    $("#rainbowish").append($removedDiv);
+  }
+
+  var rotateDivsForward = function() {
+    var $removedDiv = $('#rainbowish').children().last().remove();
+    $("#rainbowish").prepend($removedDiv);
+  }
+
+  // pass ruby objects to javascript
+  // var first = '<%= @pattern.first %>';
+  // var second = '<%= @pattern.second %>';
+  // var third = '<%= @pattern.third %>';
 });
