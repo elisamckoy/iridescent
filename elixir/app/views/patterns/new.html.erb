@@ -10,16 +10,20 @@
 
 <%= form_for :pattern, url: patterns_path do |f| %>
   <p>
+    <%= f.label :title %><br>
     <%= f.text_field :name %>
   </p>
   <p>
-    <%= f.text_field :first %>
+    <%= f.label :first_Colour %><br>
+    <%= f.text_field :first, :placeholder => "Hex value only"%>
   </p>
   <p>
-    <%= f.text_field :second %>
+    <%= f.label :second_Colour %><br>
+    <%= f.text_field :second, :placeholder => "Hex value only"%>
   </p>
   <p>
-    <%= f.text_field :third %>
+    <%= f.label :third_Colour %><br>
+    <%= f.text_field :third, :placeholder => "Hex value only"%>
   </p>
   <p>
     <%= f.submit %>

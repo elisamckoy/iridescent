@@ -10,16 +10,20 @@
 
 <%= form_for :pattern, url: pattern_path(@pattern), method: :patch do |f| %>
   <p>
+    <%= f.label :title %><br>
     <%= f.text_field :name %>
   </p>
   <p>
-    <%= f.text_field :first %>
+    <%= f.label :first_Colour %><br>
+    <%= f.text_field :first, :placeholder => "hex value please"%>
   </p>
   <p>
-    <%= f.text_field :second %>
+    <%= f.label :second_Colour %><br>
+    <%= f.text_field :second, :placeholder => "hex value please"%>
   </p>
   <p>
-    <%= f.text_field :third %>
+    <%= f.label :third_Colour %><br>
+    <%= f.text_field :third, :placeholder => "hex value please"%>
   </p>
   <p>
     <%= f.submit %>
