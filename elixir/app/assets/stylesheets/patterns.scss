@@ -12,7 +12,12 @@
 	text-align: center;
 }
 
-h1 {
+h2 {
+  font-size: 8em;
+  margin: 40px 0;
+}
+
+h1, h2 {
 	font-family: 'Raleway', sans-serif;
 	color: #9757a6;
 }
@@ -46,26 +51,14 @@ a:active {
 
 /*------------------------ RAINBOWS ------------------------*/
 
-/* break this in to only 3 or make user enter 5 colours 
-	 want to have a delay on each div so they go at different times
-// 	 also add opacity value for more colour range and texture*/
-// @keyframes testing {
-//     0%   {background-color: #cc0f58; }
-//     25%  {background-color: #58cc0f; }
-//     50%  {background-color: #0f58cc; }
-//     75%  {background-color: #f03da1; }
-//     100% {background-color: #000; }
-// }
-
 #rainbowish {
   width: 100%;
+  margin-top: 50px;
 }
 
 div.color{
   display:inline-block;
   width:20px;
   height:20px;
-  // animation-name: testing;
-  // animation-duration: 10s;
 }
 
