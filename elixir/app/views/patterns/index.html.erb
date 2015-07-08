@@ -1,13 +1,16 @@
-<h1>Elixir</h1>
-<%= link_to('Create a New Pattern', new_pattern_path) %>
+<h2>Elixir</h2>
+<%= link_to('Create a New Color', new_pattern_path) %>
 
+<div id='rainbowish'></div>
 <ul>
   <% @patterns.each do |pattern| %>
     <li>
       <p><%= "#{ pattern.name }" %></p>
-      <%= link_to('Show Pattern', pattern_path(pattern)) %>
+      <%= link_to('Details', pattern_path(pattern)) %>
     </li>
   <% end %>
 </ul>
 
-<div id='rainbowish'></div>
+<div class='first' style="display:none;"><%= @patterns.last().first %></div>
+<div class='second' style="display:none;"><%= @patterns.last().second %></div>
+<div class='third' style="display:none;"><%= @patterns.last().third %></div>

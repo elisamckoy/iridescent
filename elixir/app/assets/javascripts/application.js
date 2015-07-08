@@ -14,19 +14,21 @@
 //= require jquery_ujs
 //= require_tree .
 
+
 $(document).ready(function(){
   function colorGradient(){
     colorString = "";
-    for (var i = 0; i < 500; ++i){
+    for (var i = 0; i < 1000; ++i){
       //if no color is being added do this
-      r = Math.sin(.3 * i + 0) * (50) + 200;
-      g = Math.sin(.4 * i + 2) * (50) + 200;
-      b = Math.sin(.3 * i + 4) * (50) + 200;
+      // r = Math.sin(.3 * i + 0) * (50) + 200;
+      // g = Math.sin(.4 * i + 2) * (50) + 200;
+      // b = Math.sin(.3 * i + 4) * (50) + 200;
       //if color is being added set r, g, b to users color
-      // r = first
-      // g = second
-      // b = third
-      div ='<div class="color" style="background-color:rgb({r},{g},{b});"></div>';
+      r = parseInt($('.first').text());
+      g = parseInt($('.second').text());
+      b = parseInt($('.third').text());
+   
+      div ='<div class="color" style="background-color:rgba({r},{g},{b},' + i / 400 + ');"></div>';
       div = div.replace("{r}",Math.floor(r));
       div = div.replace("{g}",Math.floor(g));
       div = div.replace("{b}",Math.floor(b));
@@ -36,6 +38,14 @@ $(document).ready(function(){
   }
 
   $('#rainbowish').html(colorGradient());
+
+  $(function () {
+    var parent = $("#rainbowish");
+    var divs = parent.children();
+    while (divs.length) {
+      parent.append(divs.splice(Math.floor(Math.random() * divs.length), 1)[0]);
+    }
+  });
 
   var rotateDivsBack = function() {
     var $removedDiv = $('#rainbowish').children().first().remove();
@@ -67,17 +77,5 @@ $(document).ready(function(){
     $(this).data("clicks", !clicks);
   })
 
-
-  // generateOpacity = function (opacity) {
-  //   var $div = $("<div class='color'></div>").css({
-  //     // use users colors for rgb values?
-  //     'background' : 'rgba(255,0,0,' + opacity / 255 + ')'
-  //   });
-  //   return $div;
-  // };
-
-  // pass ruby objects to javascript
-  // var first = '<%= @pattern.first %>';
-  // var second = '<%= @pattern.second %>';
-  // var third = '<%= @pattern.third %>';
 });
+

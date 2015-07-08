@@ -1,4 +1,4 @@
-<h1>Create a Pattern</h1>
+<h1>Create a Colour</h1>
 
 <% if @pattern.errors.any? %>
     <ul>
@@ -14,16 +14,16 @@
     <%= f.text_field :name %>
   </p>
   <p>
-    <%= f.label :first_Colour %><br>
-    <%= f.text_field :first, :placeholder => "Hex value only"%>
+    <%= f.label :red_Value %><br>
+    <%= f.text_field :first, :placeholder => "0 - 255 Only"%>
   </p>
   <p>
-    <%= f.label :second_Colour %><br>
-    <%= f.text_field :second, :placeholder => "Hex value only"%>
+    <%= f.label :green_Value %><br>
+    <%= f.text_field :second, :placeholder => "0 - 255 Only"%>
   </p>
   <p>
-    <%= f.label :third_Colour %><br>
-    <%= f.text_field :third, :placeholder => "Hex value only"%>
+    <%= f.label :blue_Value %><br>
+    <%= f.text_field :third, :placeholder => "0 - 255 Only"%>
   </p>
   <p>
     <%= f.submit %>
