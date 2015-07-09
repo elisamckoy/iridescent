@@ -1,16 +1,18 @@
-<h2>Elixir</h2>
-<%= link_to('Create a New Color', new_pattern_path) %>
-
+<h2>Iridescent</h2>
+<%= link_to('Create a New Color', new_pattern_path, class: "create_button") %>
+<p id='title'><%= @patterns.first().name %></p>
 <div id='rainbowish'></div>
 <ul>
   <% @patterns.each do |pattern| %>
     <li>
-      <p><%= "#{ pattern.name }" %></p>
-      <%= link_to('Details', pattern_path(pattern)) %>
+    	<div class='users_colors'>
+	      <p><%= "#{ pattern.name }" %></p>
+	      <%= link_to('Details', pattern_path(pattern)) %>
+	      <%= link_to('Display', pattern_path(pattern), class: "display") %>
+				<div class="r" style="display:none;"><%= pattern.first %></div>
+				<div class="g" style="display:none;"><%= pattern.second %></div>
+				<div class="b" style="display:none;"><%= pattern.third %></div>
+			</div>
     </li>
   <% end %>
 </ul>
-
-<div class='first' style="display:none;"><%= @patterns.last().first %></div>
-<div class='second' style="display:none;"><%= @patterns.last().second %></div>
-<div class='third' style="display:none;"><%= @patterns.last().third %></div>
