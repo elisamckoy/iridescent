@@ -14,20 +14,24 @@
 //= require jquery_ujs
 //= require_tree .
 
+// TO MOTHER FUCKING DO:
+// add try button after each color that changes the rainbow color
+// add name to page to show what color id being shown
+// add a mixing function to mix colors together
 
 $(document).ready(function(){
+
+  $('#rainbowish').html(colorGradient());
+  randomize();
+
   function colorGradient(){
     colorString = "";
     for (var i = 0; i < 1000; ++i){
-      //if no color is being added do this
-      // r = Math.sin(.3 * i + 0) * (50) + 200;
-      // g = Math.sin(.4 * i + 2) * (50) + 200;
-      // b = Math.sin(.3 * i + 4) * (50) + 200;
-      //if color is being added set r, g, b to users color
-      r = parseInt($('.first').text());
-      g = parseInt($('.second').text());
-      b = parseInt($('.third').text());
-   
+
+      r = Math.sin(.3 * i + 0) * (50) + 200;
+      g = Math.sin(.4 * i + 2) * (50) + 200;
+      b = Math.sin(.3 * i + 4) * (50) + 200;
+
       div ='<div class="color" style="background-color:rgba({r},{g},{b},' + i / 400 + ');"></div>';
       div = div.replace("{r}",Math.floor(r));
       div = div.replace("{g}",Math.floor(g));
@@ -37,28 +41,47 @@ $(document).ready(function(){
     return colorString ;
   }
 
-  $('#rainbowish').html(colorGradient());
+  $(document).on("click", ".display", function(e){
+    e.preventDefault();
+    var r = $(this).siblings('.r').text();
+    var g = $(this).siblings('.g').text();
+    var b = $(this).siblings('.b').text();
+    function userColorGradient(){
+      colorString = "";
+      for (var i = 0; i < 1000; ++i){
+        div ='<div class="color" style="background-color:rgba({r},{g},{b},' + i / 400 + ');"></div>';
+        div = div.replace("{r}",Math.floor(r));
+        div = div.replace("{g}",Math.floor(g));
+        div = div.replace("{b}",Math.floor(b));
+        colorString += div;
+      }
+      return colorString ;
+    }
+    $('#rainbowish').html(userColorGradient());
+    randomize();
+  });
 
-  $(function () {
+  function randomize() {
     var parent = $("#rainbowish");
     var divs = parent.children();
     while (divs.length) {
       parent.append(divs.splice(Math.floor(Math.random() * divs.length), 1)[0]);
     }
-  });
+  };
 
-  var rotateDivsBack = function() {
+  function rotateDivsBack() {
     var $removedDiv = $('#rainbowish').children().first().remove();
     $("#rainbowish").append($removedDiv);
   }
 
-  var rotateDivsForward = function() {
+  function rotateDivsForward() {
     var $removedDiv = $('#rainbowish').children().last().remove();
     $("#rainbowish").prepend($removedDiv);
   }
 
-    var back;
-    var forward;
+  var back;
+  var forward;
+
   $(document).on('click', function(){
     var clicks = $(this).data('clicks');
 
@@ -76,6 +99,4 @@ $(document).ready(function(){
     }
     $(this).data("clicks", !clicks);
   })
-
 });
-
