@@ -3,6 +3,10 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 /*------------------------ GENERAL ------------------------*/
+html,
+body {
+  background-color: #FFFFFA;
+}
 
 * {
 	font-family: 'Hind', sans-serif;
@@ -17,13 +21,13 @@ h2 {
   font-family: 'Oswald', sans-serif;
   letter-spacing: 10px;
   font-size: 4em;
-  padding: 0 0 30px 5px;
   margin: 0px 0 20px 0;
-  border-bottom: 4px solid #000;
 }
 
 h1, 
 h2 {
+  padding: 0 0 30px 5px;
+  border-bottom: 4px solid #000;
   color: #000;
 }
 
