@@ -25,7 +25,7 @@ $(document).ready(function(){
 
   function colorGradient(){
     colorString = "";
-    for (var i = 0; i < 1260; ++i){
+    for (var i = 0; i < 1420; ++i){
 
       r = Math.sin(.3 * i + 0) * 50 + 200;
       g = Math.sin(.4 * i + 2) * 50 + 200;
@@ -47,7 +47,7 @@ $(document).ready(function(){
     var b = $(this).parents('.users_colors').children('.b').text();
     function userColorGradient(){
       colorString = "";
-      for (var i = 0; i < 1260; ++i){
+      for (var i = 0; i < 1420; ++i){
         div ='<div class="color" style="background-color:rgba({r},{g},{b},' + i / 400 + ');"></div>';
         div = div.replace("{r}",Math.floor(r));
         div = div.replace("{g}",Math.floor(g));
